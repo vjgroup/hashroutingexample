@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hash Routing Demo</title>
+  <style>
+    body { font-family: sans-serif; margin: 2em; }
+    nav a { margin-right: 1em; }
+  </style>
+  <script>
+    function render() {
+      const content = document.getElementById('content');
+      const hash = window.location.hash;
+      if (hash === '#/about') {
+        content.innerHTML = '<h1>About</h1><p>This is some placeholder text for the about page.</p>';
+      } else if (hash === '#/contact') {
+        content.innerHTML = '<h1>Contact</h1><p>Here\'s some dummy info for getting in touch.</p>';
+      } else {
+        content.innerHTML = '<h1>Home</h1><p>Welcome to the home page! Replace this with your own content.</p>';
+      }
+    }
+    window.addEventListener('hashchange', render);
+    window.addEventListener('DOMContentLoaded', render);
+  </script>
+</head>
+<body>
+  <nav>
+    <a href="#/">Home</a> |
+    <a href="#/about">About</a> |
+    <a href="#/contact">Contact</a>
+  </nav>
+  <div id="content"></div>
+</body>
+</html>
